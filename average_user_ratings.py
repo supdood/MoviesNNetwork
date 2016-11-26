@@ -9,17 +9,13 @@ with open ('movielens_data/ratings.csv', 'r') as ratings:
                 
         total_score = 0
         num_ratings = 1
-        count = 1
-        user_count = 1
         last_id = -1
         
         lowest_index = -1
-        count = 0
         
         writer.writerow(['userId', 'averageRating'])
         
         for row in reader:
-            count += 1
             if last_id == row[0]:
                 total_score += float(row[2])
                 num_ratings += 1
