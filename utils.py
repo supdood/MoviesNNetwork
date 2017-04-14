@@ -118,6 +118,17 @@ def quick_who_rated():
             lookup[index] = row
         return lookup    
         
+def user_movie_dict():
+    with open('movielens_data/ratings.csv', 'r', encoding='utf-8') as ratings:
+        reader = csv.reader(ratings, delimiter=',')
+        next(reader)
+        dict = {}
+        
+        for row in reader:
+            key = row[0] + " " + row[1]
+            dict[key] = row[2]
+        return dict
+        
 def average_genre_ratings(a):
     for i in range(len(a)):
         if (len(a[i]) > 0):
